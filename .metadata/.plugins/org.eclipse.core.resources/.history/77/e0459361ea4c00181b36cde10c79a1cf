@@ -1,0 +1,44 @@
+package medians;
+
+import java.io.Console;
+
+public class Medians {
+
+	public static void main(String[] args) {
+		int[] ar = {9,1,3,2,6,4,7,8,0,5};
+		double t = bruteForceMedian(ar);
+		
+		System.out.print(t);
+
+	}
+	
+	private static int bruteForceMedian(int[] A){
+		// Returns the median value in a given array A of n numbers. This is 
+		// the kth element, where k = n/2, if the array was sorted.
+		
+		double n = A.length;
+		double k = Math.ceil(n/2);
+		int med = -1;
+		
+		for(int i = 0; i < n-1;){
+			int numsmaller = 0; //How many elements are smaller than A[i]
+			int numequal = 0; //How many elements are equal to A[i]
+			
+			for(int j = 0; j < n-1; j++){
+				if(A[i] < A[j]){
+					numsmaller++;
+				} else if (A[j] == A[i]){
+					numequal++;
+				}
+		if(numsmaller < k && k <= (numsmaller + numequal)){
+			med = A[i];
+			break;
+		}
+			}
+			
+	
+		}
+		return med;
+	}
+
+}

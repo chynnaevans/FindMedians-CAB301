@@ -1,0 +1,10 @@
+package medians;
+
+public class Medians {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
