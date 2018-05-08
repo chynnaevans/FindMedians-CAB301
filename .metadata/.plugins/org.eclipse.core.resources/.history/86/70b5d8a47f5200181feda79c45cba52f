@@ -13,7 +13,7 @@ public class Medians {
 
 		
 		// create arrays
-		for(int n = 1; n <= 100000; n+= 5000){
+		for(int n = 1; n <= 100000; n+= 10000){
 			
 			//conduct 20 tests per n
 //			int[][] arrays = new int[20][];
@@ -24,7 +24,7 @@ public class Medians {
 			int brute_counter = 0;
 			median_counter = 0;
 			for(int j = 0; j < 20; j++){
-			int[] arr = create_array_reverse_ordered(n);
+			int[] arr = create_array(n);
 			
 			start_time = System.currentTimeMillis();
 			bruteForceMedian(arr);

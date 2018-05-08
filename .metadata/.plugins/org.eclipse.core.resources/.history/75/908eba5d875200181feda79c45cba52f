@@ -24,7 +24,7 @@ public class Medians {
 			int brute_counter = 0;
 			median_counter = 0;
 			for(int j = 0; j < 20; j++){
-			int[] arr = create_array_reverse_ordered(n);
+			int[] arr = create_array_all_neg(n);
 			
 			start_time = System.currentTimeMillis();
 			bruteForceMedian(arr);
