@@ -32,7 +32,7 @@ public class Medians {
 			int b = bruteForceMedian(arr);
 			brute_force_time = brute_force_time + (System.currentTimeMillis() - start_time);
 			if(b != true_median){
-				System.out.println("---------- brute force error ----------");
+				System.out.println("---------- ERROR ----------");
 			}
 			brute_counter += bruteForceMedian_counter(arr);
 			
@@ -40,7 +40,7 @@ public class Medians {
 			int m = Median(arr);
 			median_time = median_time + (System.currentTimeMillis() - start_time);
 			if(m != true_median){
-				System.out.println("---------- median/partition/select error ----------");
+				System.out.println("---------- MERROR ----------");
 			}
 			Median_counter(arr);
 			
@@ -84,6 +84,7 @@ public class Medians {
 				break;
 	}
 	}
+		System.out.print(med);
 		return med;
 	}
 

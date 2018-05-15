@@ -31,17 +31,13 @@ public class Medians {
 			start_time = System.currentTimeMillis();
 			int b = bruteForceMedian(arr);
 			brute_force_time = brute_force_time + (System.currentTimeMillis() - start_time);
-			if(b != true_median){
-				System.out.println("---------- brute force error ----------");
-			}
+
 			brute_counter += bruteForceMedian_counter(arr);
 			
 			start_time = System.currentTimeMillis();
 			int m = Median(arr);
 			median_time = median_time + (System.currentTimeMillis() - start_time);
-			if(m != true_median){
-				System.out.println("---------- median/partition/select error ----------");
-			}
+
 			Median_counter(arr);
 			
 			}

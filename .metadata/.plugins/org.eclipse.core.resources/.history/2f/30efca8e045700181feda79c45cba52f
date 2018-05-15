@@ -11,7 +11,7 @@ public class Medians {
 //		int[] arr = create_array(95000);
 //		bruteForceMedian_counter(arr);
 
-		System.out.print("n, bruteForceMedian_time, bruteForceMedian_counter, Median_time, Median_counter \n");
+//		System.out.print("n, bruteForceMedian_time, bruteForceMedian_counter, Median_time, Median_counter \n");
 //
 //		
 		// create arrays
@@ -27,26 +27,22 @@ public class Medians {
 			median_counter = 0;
 			for(int j = 0; j < 20; j++){
 			int[] arr = create_array(n);
-			int true_median = test_array(arr);
+			
 			start_time = System.currentTimeMillis();
-			int b = bruteForceMedian(arr);
+			bruteForceMedian(arr);
 			brute_force_time = brute_force_time + (System.currentTimeMillis() - start_time);
-			if(b != true_median){
-				System.out.println("---------- brute force error ----------");
-			}
+			
 			brute_counter += bruteForceMedian_counter(arr);
 			
 			start_time = System.currentTimeMillis();
-			int m = Median(arr);
+			Median(arr);
 			median_time = median_time + (System.currentTimeMillis() - start_time);
-			if(m != true_median){
-				System.out.println("---------- median/partition/select error ----------");
-			}
+			
 			Median_counter(arr);
 			
 			}
 			
-			System.out.print(n + ", " + brute_force_time/20 + ", " + (brute_counter/20)*100 + ", "+ median_time/20 + ", " + median_counter/20 + "\n");
+			System.out.print(n + ", " + brute_force_time/20 + ", " + (brute_counter/20)*10000 + ", "+ median_time/20 + ", " + median_counter + "\n");
 
 		}
 
@@ -65,7 +61,7 @@ public class Medians {
 		
 		double n = A.length;
 		double k = Math.ceil(n/2);
-		int med = A[0];
+		int med = -1;
 		
 		for(int i = 0; i < n-1; i++){
 			int numsmaller = 0; //How many elements are smaller than A[i]
@@ -92,7 +88,7 @@ public class Medians {
 	private static int bruteForceMedian_counter(int[] A){
 		// Returns the median value in a given array A of n numbers. This is 
 		// the kth element, where k = n/2, if the array was sorted.
-//		System.out.println(Arrays.toString(A));
+		System.out.println(Arrays.toString(A));
 		double n = A.length;
 		double k = Math.ceil(n/2);
 		int med = 0;
@@ -121,8 +117,8 @@ public class Medians {
 				break;
 	}
 	}
-//		System.out.print("med: " + med + "counter: " + counter);
-		return counter/100;
+		System.out.print("med: " + med + "counter: " + counter);
+		return counter/10000;
 	}
 
 //
@@ -220,7 +216,7 @@ public class Medians {
 	
 	public static int Select_counter(int[] A, int l, int m, int h){
 		//Returns the value at index m in array slice A[l...h], if the slice
-		//were sorted into non-decreasing order.
+		//were sorted into non-descreasing order.
 		int pos = Partition_counter(A, l, h);
 		int ret = -1;
 		if(pos == m){
@@ -333,18 +329,6 @@ public class Medians {
 		}
 
 		return this_array;
-	}
-	
-	private static int test_array(int[] A){
-		Arrays.sort(A);
-		int median;
-		if(A.length == 1){
-			median = A[0];
-		} else{
-		median = A[A.length/2];
-		}
-		
-		return median;
 	}
 	
 }

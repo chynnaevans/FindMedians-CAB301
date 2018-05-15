@@ -26,27 +26,23 @@ public class Medians {
 			int brute_counter = 0;
 			median_counter = 0;
 			for(int j = 0; j < 20; j++){
-			int[] arr = create_array(n);
-			int true_median = test_array(arr);
+			int[] arr = create_array_ordered(n);
+			
 			start_time = System.currentTimeMillis();
-			int b = bruteForceMedian(arr);
+			bruteForceMedian(arr);
 			brute_force_time = brute_force_time + (System.currentTimeMillis() - start_time);
-			if(b != true_median){
-				System.out.println("---------- brute force error ----------");
-			}
+			
 			brute_counter += bruteForceMedian_counter(arr);
 			
 			start_time = System.currentTimeMillis();
-			int m = Median(arr);
+			Median(arr);
 			median_time = median_time + (System.currentTimeMillis() - start_time);
-			if(m != true_median){
-				System.out.println("---------- median/partition/select error ----------");
-			}
+			
 			Median_counter(arr);
 			
 			}
 			
-			System.out.print(n + ", " + brute_force_time/20 + ", " + (brute_counter/20)*100 + ", "+ median_time/20 + ", " + median_counter/20 + "\n");
+			System.out.print(n + ", " + brute_force_time/20 + ", " + (brute_counter/20)*100 + ", "+ median_time/20 + ", " + median_counter + "\n");
 
 		}
 
@@ -65,7 +61,7 @@ public class Medians {
 		
 		double n = A.length;
 		double k = Math.ceil(n/2);
-		int med = A[0];
+		int med = -1;
 		
 		for(int i = 0; i < n-1; i++){
 			int numsmaller = 0; //How many elements are smaller than A[i]
@@ -333,18 +329,6 @@ public class Medians {
 		}
 
 		return this_array;
-	}
-	
-	private static int test_array(int[] A){
-		Arrays.sort(A);
-		int median;
-		if(A.length == 1){
-			median = A[0];
-		} else{
-		median = A[A.length/2];
-		}
-		
-		return median;
 	}
 	
 }
